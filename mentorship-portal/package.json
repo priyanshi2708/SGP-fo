@@ -1,0 +1,17 @@
+{
+  "name": "mentorship-portal",
+  "version": "1.0.0",
+  "description": "Full-stack MERN mentorship management portal",
+  "private": true,
+  "scripts": {
+    "client:install": "cd client && npm install",
+    "server:install": "cd server && npm install",
+    "client:dev": "cd client && npm run dev",
+    "server:dev": "cd server && npm run dev",
+    "client:build": "cd client && npm run build",
+    "server:start": "cd server && npm start"
+  },
+  "keywords": ["mern", "mentorship", "portal"],
+  "author": "",
+  "license": "ISC"
+}
