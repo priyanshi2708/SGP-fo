@@ -15,4 +15,10 @@ export const dashboardAPI = {
   getMentors: () => apiClient.get('/mentors'),
 }
 
+export const institutionAPI = {
+  getInstitutions: () => apiClient.get('/institutions'),
+  getInstitutionById: (id) => apiClient.get(`/institutions/${id}`),
+  createInstitution: (data) => apiClient.post('/institutions', data),
+}
+
 export default apiClient

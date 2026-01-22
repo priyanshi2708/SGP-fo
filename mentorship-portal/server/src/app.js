@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import dashboardRoutes from './routes/dashboardRoutes.js'
+import institutionRoutes from './routes/institutionRoutes.js'
 
 dotenv.config()
 
@@ -18,6 +19,7 @@ connectDB()
 
 // Routes
 app.use('/api', dashboardRoutes)
+app.use('/api/institutions', institutionRoutes)
 
 // Health check
 app.get('/health', (req, res) => {
