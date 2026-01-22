@@ -21,12 +21,29 @@ app.use('/api', dashboardRoutes)
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'Server is running' })
+  res.json({ 
+    status: 'Server is running',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  })
+})
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('❌ Error:', err.message)
+  res.status(err.status || 500).json({ 
+    error: err.message || 'Internal Server Error',
+    timestamp: new Date().toISOString()
+  })
 })
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).json({ error: 'Route not found' })
+  res.status(404).json({ 
+    error: 'Route not found',
+    path: req.path,
+    method: req.method
+  })
 })
 
 export default app
